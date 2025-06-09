@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Screen Image</title>
+    <style>
+        /* Set the image to fully cover the viewport using a class */
+        .full-image {
+            width: 100vw;          /* Full width of the viewport */
+            height: 70vh;          /* Height set to 70% of the viewport height */
+            object-fit: cover;     /* Ensures the image covers the entire area */
+            filter: contrast(1.2) brightness(1.1); /* Optional filter for enhanced sharpness */
+        }
+    </style>
+</head>
+<body>
+    <!-- Replace "chit.jpg" with the path to your desired image -->
+    <img src="chit.jpg" alt="Full-Screen Image" class="full-image">
+</body>
+</html>

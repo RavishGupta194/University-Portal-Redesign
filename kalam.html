@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Header Section */
+.hero {
+    height: 100vh;
+    background: url('kalam1.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.hero .btn {
+    padding: 10px 20px;
+    background: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.hero .btn:hover {
+    background: #218838;
+}
+
+/* Navbar */
+.navbar {
+    background: #333;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #28a745;
+}
+
+/* Section */
+.section {
+    padding: 50px 20px;
+    text-align: center;
+    background: #f4f4f9;
+}
+
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.section p {
+    margin-bottom: 30px;
+    color: #555;
+}
+
+/* Card Container */
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: cover;
+    height: 200px;
+}
+
+.card h3 {
+    margin: 20px 0 10px;
+    font-size: 1.2rem;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Footer */
+.footer {
+    background: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalam Block - Your College</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="hero">
+        <h1>Welcome to Kalam Block</h1>
+        <p>Explore the Sarabhai Computer Center, Pharmacy Section, and more!</p>
+        <a href="#sarabhai-center" class="btn">Learn More</a>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="#sarabhai-center">Sarabhai Center</a>
+        <a href="#ios-lab">iOS Development Lab</a>
+        <a href="#pharmacy">Pharmacy Section</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Sarabhai Computer Center Section -->
+    <section id="sarabhai-center" class="section">
+        <h2>Sarabhai Computer Center</h2>
+        <p>The Sarabhai Computer Center is designed for cutting-edge research, learning, and practical exposure in the field of computer science and engineering.</p>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="Advanced Computers">
+                <h3>Advanced Labs</h3>
+                <p>With high-speed computing systems and advanced software, the labs are perfect for running simulations, machine learning, and AI projects.</p>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="Coding Zone">
+                <h3>Programming Zone</h3>
+                <p>Dedicated spaces for students to work collaboratively on coding challenges and projects, fostering innovation and teamwork.</p>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="Cloud Computing">
+                <h3>Cloud Computing</h3>
+                <p>Equipped with resources to explore cloud platforms like AWS, Azure, and Google Cloud for next-gen computing solutions.</p>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="Network Labs">
+                <h3>Networking Labs</h3>
+                <p>Specialized labs for exploring cybersecurity, network protocols, and virtual machine setups.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- iOS Development Lab Section -->
+    <section id="ios-lab" class="section">
+        <h2>iOS Development Lab</h2>
+        <p>The iOS Development Lab provides a dedicated environment for designing and developing applications for Apple’s ecosystem.</p>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="Apple Devices">
+                <h3>Exclusive Apple Environment</h3>
+                <p>Access to the latest Apple devices and tools, including MacBooks and iPads, to develop and test innovative applications.</p>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="Swift Programming">
+                <h3>Swift Programming</h3>
+                <p>Learn Apple’s programming language, Swift, through hands-on projects and expert-led sessions.</p>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="App Store Projects">
+                <h3>App Store Ready</h3>
+                <p>Design, build, and deploy apps that meet App Store guidelines and standards, ensuring professional-level outcomes.</p>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="AR/VR">
+                <h3>AR/VR Applications</h3>
+                <p>Leverage Apple’s ARKit to develop augmented reality and virtual reality applications for immersive experiences.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pharmacy Section -->
+    <section id="pharmacy" class="section">
+        <h2>Pharmacy Courses</h2>
+        <p>Our Pharmacy Section provides a blend of academic knowledge, practical training, and research opportunities in the field of pharmaceutical sciences.</p>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="Pharmacy Labs">
+                <h3>Pharmacy Labs</h3>
+                <p>State-of-the-art facilities for conducting experiments in drug formulation, quality control, and pharmacology.</p>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="Research Opportunities">
+                <h3>Research Opportunities</h3>
+                <p>Collaborate with leading researchers on innovative projects in drug development and biotechnology.</p>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="Community Health">
+                <h3>Community Health Programs</h3>
+                <p>Participate in initiatives that promote public health awareness and provide basic healthcare to local communities.</p>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="Pharmacy Careers">
+                <h3>Pharmacy Careers</h3>
+                <p>Guidance and placement support for students to excel in pharmaceutical companies and healthcare institutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="contact" class="footer">
+        <h2>Contact Us</h2>
+        <p>Address: Kalam Block, Your College</p>
+        <p>Email: info@college.edu</p>
+    </footer>
+</body>
+</html>

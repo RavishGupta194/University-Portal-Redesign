@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar with Dropdown Menus</title>    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    
+    <style>
+        :root {
+            --navbar-height: 70px; /* Adjust the main navbar height here */
+            --topbar-height: 30px; /* Adjust the red navbar height here */
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .topbar {
+            background-color: rgb(48, 43, 43);
+            height: var(--topbar-height);
+            width: 70%; /* Set width to half the screen */
+            margin-left: auto; /* Push the topbar to the right */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            border-bottom-left-radius: 15px; /* Rounded bottom-right corner */
+        }
+
+        .main-navbar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* Align elements to the right */
+            height: var(--navbar-height);
+            padding: 0 0px;
+            position: relative; /* For layering the logo */
+        }
+
+        .logo {
+            position: absolute;
+            top: -50%;
+            left: 0px; /* Adjust the logo's horizontal position */
+            height: calc(var(--navbar-height) + var(--topbar-height));
+
+        }
+
+        .logo img {
+            height: 100%; /* Ensure the logo covers both the topbar and navbar */
+            width: auto;
+        }
+        .navbar {
+            background-image: url(''); /* Replace with your image URL */
+            background-size: cover; /* Make the image cover the entire navbar */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent tiling */
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            font-size: 17px;
+            font-weight: bold;
+            font-family: Arial Black
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown > a {
+            display: inline-block;
+            text-decoration: none;
+            color: black;
+            padding: 10px 15px;
+        }
+
+        .dropdown > a:hover {
+            background-color: rgba(33, 31, 31, 0.5);
+            transition: 0.3s;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        #content:hover{
+            border-bottom: 4px solid red;
+        }
+
+        .dropdown-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgb(39, 37, 37);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: none;
+            z-index: 10;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            min-width: 180px; /* Ensure consistent dropdown width */
+        }
+
+        .dropdown-menu li a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: normal;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #a6a1a1;
+            color: #000;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .nav-links .button {
+            background-color: orange;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin-left: 20px;
+            margin-right: 2px;
+        }
+
+        .nav-links .button:hover {
+            background-color: rgb(158, 103, 2);
+            transition: 0.5s;
+            padding: 15px 30px;
+        }
+        #content{
+            margin-right: 0px !important;
+        }
+        .dropdownup {
+            position: relative;
+        }
+
+        .dropdownup > a {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            padding: 5px 10px;
+            border-right: 1px solid red;
+        }
+
+        .dropdownup > a:hover {
+            background-color: rgba(33, 31, 31, 0.5);
+            transition: 0.3s;
+            border-bottom: 1px solid red;
+            
+        }
+        #content:hover{
+            border-bottom: 3px solid rgb(185, 13, 13);
+        }
+
+        .dropdownup-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgb(39, 37, 37);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: none;
+            z-index: 10;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            min-width: 180px; /* Ensure consistent dropdown width */
+        }
+
+        .dropdownup-menu li a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: normal;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .dropdownup-menu li a:hover {
+            background-color: #a6a1a1;
+            color: #000;
+        }
+
+        .dropdownup:hover .dropdownup-menu {
+            display: block;
+        }
+        #lol{
+            background-color:black;
+            border-bottom-left-radius: 10px;
+        }
+        .background-section {
+            position: relative;
+            height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .background-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("map.png"); /* Replace with your image URL */
+            background-size: 100% 100%;
+            background-position: center;
+            transform: scale(1); /* Zoom out */
+            z-index: -1;
+            opacity: 0.6;
+        }
+        .bubble {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent bubbles */
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0; /* Initial state for animation */
+            transform: scale(0.5); /* Start smaller */
+            animation: bubblePop 1s forwards; /* Trigger animation */
+            transition: transform 0.5s ease !important;
+
+            
+        }
+        .bubble:hover {
+            transform: scale(1.3) !important;
+            
+        }
+
+        /* Animation keyframes */
+        @keyframes bubblePop {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .bubble1 {
+            top: 20%;
+            left: 25%;
+            background-image: url('acads.jpg'); /* Replace with your image path */
+            animation-delay: 0.2s;
+            
+        }
+
+        .bubble2 {
+            top: 10%;
+            left: 45%;
+            background-image: url('food.webp'); /* Replace with your image path */
+            animation-delay: 0.4s;
+        }
+
+        .bubble3 {
+            top: 20%;
+            left: 65%;
+            background-image: url('sport2.webp'); /* Replace with your image path */
+            animation-delay: 0.6s;
+        }
+
+        .bubble4 {
+            top: 60%;
+            left: 35%;
+            background-image: url('eco2.jpg'); /* Replace with your image path */
+            animation-delay: 0.8s;
+        }
+
+        .bubble5 {
+            top: 60%;
+            left: 55%;
+            background-image: url('hostel.jpg'); /* Replace with your image path */
+            animation-delay: 1s;
+        }
+
+        /* Center Logo */
+        .center-logo {
+            position: absolute;
+            top: 42%;
+            left: 45.5%;
+            width: 90px;
+            height: 90px;
+            background-image: url('images.jpg'); /* Replace with your logo image path */
+            background-size: cover;
+            background-position: center;
+            z-index: 10;
+            border-radius: 10px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            text-align: center;
+            margin: 20px auto;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .title::after {
+            content: '';
+            display: block;
+            width: 50%; /* Gold underline width */
+            height: 4px;
+            background-color: gold;
+            margin: 5px auto 0 auto;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 260px; /* Adjusted width */
+            height: 400px; /* Adjusted height */
+            text-align: center;
+            border: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card img {
+            width: 100%;
+            height: 210px; /* Adjusted image height */
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+            flex-grow: 1; /* Ensures content expands evenly */
+        }
+
+        .card-content h3 {
+            color: black; /* Burgundy */
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .card-content p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .card-content a {
+            display: inline-block;
+            background: rgb(181, 4, 4);
+            color: #fff;
+            padding: 15px 20px;
+            text-decoration: none;
+            border-top-left-radius:20px;
+            border-top-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius:20px;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .card-content a:hover {
+            background: #990033;
+        }
+
+        /* Hover effect */
+        .card:hover {
+            transform: translateY(-10px); /* Moves the card upwards */
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Adds a stronger shadow */
+        }
+        .redcontainer {
+      max-width: 2000px; /* Wide container */
+      width: 100%; /* Adjust width for responsiveness */
+      height: 400px; /* Container height */
+      background-color: rgb(181, 4, 4); /* Burgundy background for the container */
+      position: relative;
+      display: flex;
+      margin-bottom: 30px; /* Moves container slightly */
+      z-index: 1;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* More prominent shadow */
+    }
+
+    .box {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      flex: 1;
+      height: 70%; /* Made boxes smaller inside the container */
+      margin-left: 80px; /* Add spacing inside the container */
+      margin-top: 45px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px; /* Matches the box radius */
+    }
+
+    .text-box {
+      padding: 20px;
+      position: relative;
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      flex: 1;
+      height: 240px; /* Made boxes smaller inside the container */
+      /* Add spacing inside the container */
+      margin-top: 90px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      right: 95px;
+
+    }
+
+    .quote-top {
+      font-size: 110px; /* Adjusted quote size */
+      color: #fcca3f; /* Gold/yellow color */
+      position: absolute;
+      top: 85px;
+      left: 2px;
+      line-height: 0;
+
+    }
+
+    .text-box p {
+      font-size: 15px; /* Slightly smaller font */
+      line-height: 1.5;
+      color: #333;
+      margin: 0;
+      font-weight: bolder;
+    }
+
+    .author {
+      margin-top: 15px;
+      font-size: 17px; /* Smaller font size for author */
+      font-weight: bold;
+      color: rgb(181, 4, 4); /* Burgundy color */
+      text-align: right;
+    }
+
+    .quote-bottom {
+      font-size: 100px; /* Adjusted quote size */
+      color: #fcca3f; /* Gold/yellow color */
+      position: absolute;
+      bottom: 60px;
+      right: 180px;
+      line-height: 0;
+    }
+    h1 {
+            margin-bottom: 10px;
+            font-size: 2rem;
+            color: #333;
+            text-align: center;
+        }
+        .infra-heading-line {
+            width: 100px;
+            height: 3px;
+            background-color: #333;
+            margin: 0 auto 20px;
+        }
+        .infra-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .infra-box {
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+            transition: transform 0.4s ease; /* Smooth zoom on hover */
+        }
+        .infra-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease; /* Smooth zoom on hover */
+        }
+        .infra-box:hover img {
+            transform: scale(1.1); /* Zoom in on hover */
+        }
+        .infra-caption {
+            text-align: center;
+            margin-top: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+        }
+        /* Container for the stats box */
+        .stat-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%; /* Cover the entire width of the page */
+            max-width: 100%; /* Allow full width */
+            box-sizing: border-box;
+            margin: 0;
+            text-align: center;
+        }
+
+        /* Title styling - set the heading color to red and use the new font */
+        .stat-container h2 {
+            font-family: 'Poppins', sans-serif; /* Apply new font */
+            font-size: 36px; /* Larger font size for the heading */
+            font-weight: 600; /* Bold text */
+            color: red; /* Change heading color to red */
+            margin-bottom: 40px; /* Space below title */
+        }
+
+        /* Flexbox container for the stats items */
+        .stats {
+            display: flex; /* Arrange the stats horizontally */
+            justify-content: space-evenly; /* Distribute the stats evenly across the width */
+            align-items: center; /* Center them vertically */
+            width: 100%;
+        }
+
+        /* Styling for each stat item */
+        .stat-item {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin: 0 20px; /* Space between each stat item */
+        }
+
+        /* Make the countdown numbers yellow */
+        .stat-value {
+            font-size: 40px; /* Increased font size for better visibility */
+            font-weight: bold;
+            color: orange; /* Change countdown number color to yellow */
+            position: relative;
+            display: block;
+        }
+
+        /* Keyframes for simulating counting numbers */
+        @keyframes count-up-1 {
+            0% { content: "0%"; }
+            10% { content: "10%"; }
+            20% { content: "20%"; }
+            30% { content: "30%"; }
+            40% { content: "40%"; }
+            50% { content: "50%"; }
+            60% { content: "60%"; }
+            70% { content: "70%"; }
+            80% { content: "80%"; }
+            90% { content: "90%"; }
+            100% { content: "100%"; }
+        }
+
+        @keyframes count-up-2 {
+            0% { content: "0 LPA"; }
+            10% { content: "5 LPA"; }
+            20% { content: "10 LPA"; }
+            30% { content: "15 LPA"; }
+            40% { content: "20 LPA"; }
+            50% { content: "25 LPA"; }
+            60% { content: "30 LPA"; }
+            70% { content: "35 LPA"; }
+            80% { content: "38 LPA"; }
+            90% { content: "39 LPA"; }
+            100% { content: "40 LPA"; }
+        }
+
+        @keyframes count-up-3 {
+            0% { content: "0"; }
+            10% { content: "100"; }
+            20% { content: "200"; }
+            30% { content: "300"; }
+            40% { content: "400"; }
+            50% { content: "500"; }
+            60% { content: "600"; }
+            70% { content: "800"; }
+            80% { content: "1000"; }
+            90% { content: "1300"; }
+            100% { content: "1500+"; }
+        }
+
+        /* Apply animations to each stat */
+        .stat-item:nth-child(1) .stat-value::after {
+            content: ""; /* Remove initial content */
+            animation: count-up-1 3s ease-out forwards; /* Faster animation (3s) */
+        }
+
+        .stat-item:nth-child(2) .stat-value::after {
+            content: ""; /* Remove initial content */
+            animation: count-up-2 3s ease-out forwards; /* Faster animation (3s) */
+        }
+
+        .stat-item:nth-child(3) .stat-value::after {
+            content: ""; /* Remove initial content */
+            animation: count-up-3 3s ease-out forwards; /* Faster animation (3s) */
+        }
+        .recruiters-section {
+            text-align: center;
+            padding: 40px 20px;
+            font-family: Arial, sans-serif;
+            margin-top: -20px;
+        }
+
+        /* Heading styling */
+        .recruiters-section h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .recruiters-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        /* Grid container for logos */
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            justify-items: center;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Styling for logo images */
+        .logo-grid img {
+            max-width: 90%;
+            max-height: 50px;
+            object-fit: contain;
+            padding: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover effect on logos */
+        .logo-grid img:hover {
+            transform: scale(1.1);
+        }
+        
+.row{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;  
+}
+
+
+/*---------------- testimonials ------------------*/
+
+.testimonials{
+    width: 80%;
+    margin: auto;
+    padding-top: 100px;
+    text-align: center;
+}
+
+.testimonial-col{
+    flex-basis: 44%;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    text-align: left;
+    background: #fff3f3;
+    padding: 25px;
+    cursor: pointer;
+    display: flex;
+}
+.testimonial-col img{
+    height: 40px;
+    margin-left: 5px;
+    margin-right: 30px;
+    border-radius: 50%;
+}
+.testimonial-col p{
+    padding: 0;
+}
+.testimonial-col h3{
+    margin-top: 15px;
+    text-align: left;
+}
+.testimonial-col .fa{
+    color: #f44336;
+}
+
+@media(max-width:700px){
+    .testimonial-col img{
+        margin-left: 0px;
+        margin-right: 15px;
+    }
+}
+h1{
+    font-size: 36px;
+    font-weight: 600;
+}
+p{
+    color: #4c4949;
+}
+.row{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;  
+}
+.full-image {
+            width: 100px;          /* Full width of the viewport */
+            height: 500px;          /* Height set to 70% of the viewport height */
+            object-fit: cover;     /* Ensures the image covers the entire area */
+            filter: contrast(1.2) brightness(1.1); /* Optional filter for enhanced sharpness */
+        }
+ 
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="topbar" >
+            <!-- Home Dropdown -->
+            <div class="dropdownup">
+                <a href="#home" id="lol">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Undergraduate Programs&#9662; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                <ul class="dropdownup-menu">
+                    <li><a href="#home1">B.E Cse</a></li>
+                    <li><a href="#home2">BCA</a></li>
+                    <li><a href="#home3">Nursing</a></li>
+                    <li><a href="#home4">B.Pharmacy</a></li>
+
+                </ul>
+            </div>
+
+            <!-- News Dropdown -->
+            <div class="dropdownup">
+                <a href="#news">&nbsp;&nbsp;Research &#9662;&nbsp;</a>
+                <ul class="dropdownup-menu">
+                    <li><a href="#news1">Publications</a></li>
+                    <li><a href="#news2">Confrences</a></li>
+                    <li><a href="#news3">Policies</a></li>
+                    <li><a href="">Doctoral Programs</a></li>
+                    <li><a href="">Research Facilities</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Dropdown -->
+            <div class="dropdownup">
+                <a href="#contact">&nbsp;&nbsp;&nbsp;&nbsp;Skillverse&nbsp;&nbsp;&nbsp;</a>
+                <!-- <ul class="dropdownup-menu">
+                    <li><a href="#contact1">Contact Item 1</a></li>
+                    <li><a href="#contact2">Contact Item 2</a></li>
+                    <li><a href="#contact3">Contact Item 3</a></li>
+                </ul> -->
+            </div>
+
+            <!-- Support Dropdown -->
+            <div class="dropdownup">
+                <a href="#support">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alumni&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                <!-- <ul class="dropdownup-menu">
+                    <li><a href="#support1">Support Item 1</a></li>
+                    <li><a href="#support2">Support Item 2</a></li>
+                    <li><a href="#support3">Support Item 3</a></li>
+                </ul> -->
+            </div>
+
+            <!-- FAQ Dropdown -->
+            <div class="dropdownup">
+                <a href="#faq">Contact Us &#9662;</a>
+                <ul class="dropdownup-menu">
+                    <li><a href="#faq1">9418474040</a></li>
+                    <li><a href="#faq2">info@chitkarauniversity.edu.in</a></li>
+                    <li><a href="#faq3">Pincode-174103</a></li>
+                </ul>
+            </div>
+            &nbsp;&nbsp;&nbsp;#Explore<span style="color: red;">Your</span>Potential
+        </div>
+        <div class="main-navbar">
+            <div class="logo">
+                <img src="navbar.png" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <a href="AcademicMain.html" id="content">Academics</a>
+                    <!-- <ul class="dropdown-menu">
+                        <li><a href="#mission">Our Mission</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#history">Our History</a></li>
+                    </ul> -->
+                </li>
+                <li class="dropdown">
+                    <a href="lib.html" id="content">Library</a>
+                    <!-- <ul class="dropdown-menu">
+                        <li><a href="#bba">BBA</a></li>
+                        <li><a href="#bcom">B.Com</a></li>
+                        <li><a href="#bsc">B.Sc</a></li>
+                    </ul> -->
+                </li>
+                <li class="dropdown">
+                    <a href="#postgraduate-programs" id="content">Startups</a>
+                    <!-- <ul class="dropdown-menu">
+                        <li><a href="#mba">MBA</a></li>
+                        <li><a href="#mcom">M.Com</a></li>
+                        <li><a href="#msc">M.Sc</a></li>
+                    </ul> -->
+                </li>
+                <li class="dropdown">
+                    <a href="cafe.html" id="content">Cafeteria</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#GlobalPrograms" id="content">Global Programs</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#campus-life" id="content">Campus Life &#9662;</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#facilities">Facilities</a></li>
+                        <li><a href="#clubs">Clubs</a></li>
+                    </ul>
+                </li>
+                <li><a href="#signup" class="button">Admissions</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="center-logo"></div>
+    <!-- New Background Section with Bubbles and Center Logo -->
+    <div class="background-section">
+        
+        <a href="AcademicMain.html">
+            <div class="bubble bubble1"></div>        
+        </a>
+        <a href="cafe.html"><div class="bubble bubble2"></div></a>
+        <a href="sports.html"><div class="bubble bubble3"></div></a>
+        <a href="eco.html"><div class="bubble bubble4"></div></a>
+        <div class="bubble bubble5"></div>
+    </div>
+    <div class="container">
+        <div class="title">Explore our Programs</div>
+        <br>
+        <br>
+        <br>
+        <div class="card-container">
+            <div class="card">
+                <img src="WhatsApp Image 2024-11-26 at 19.19.28_3ca60599.jpg" alt="Undergraduate First Year">
+                <div class="card-content">
+                    <h3>Engineering Programs</h3>
+                    <p>Our Engineering programs have consistently been consistently ranked among the Nation’s best.</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="bca.jpeg" alt="Transfer to Alverno">
+                <div class="card-content">
+                    <h3>Bachelor of Computer Applications</h3>
+                    <p>BCA provides students with exposure to innovation.</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="nursing.jpg" alt="Graduate Programs">
+                <div class="card-content">
+                    <h3>B.Sc Nursing</h3>
+                    <p>Chitkara University Solan offers a 4 years B.Sc. in Nursing course at the UG level.</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="1523342265phpA5tL3E.png" alt="Adult Learning">
+                <div class="card-content">
+                    <h3>Bachelor of Pharmacy</h3>
+                    <p>Chitkara School of Pharmacy's top ranking B. Pharm program is unrivaled.</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="redcontainer">
+        <!-- Image Box -->
+        <div class="box image-box">
+          <img src="divam.jpg" alt="Person Image">
+        </div>
+        <!-- Text Box -->
+        <div class="box text-box">
+          <div class="quote-top">“</div>
+          <p>
+            Chitkara University provided a solid academic foundation that complemented my entrepreneurial journey.
+            The practical approach to learning, combined with valuable mentorship, helped me gain the skills and
+            confidence to launch Chai Nagri. The exposure to real-world business scenarios and a supportive 
+            network played a key role in my success.
+          </p>
+          <div class="author">- Divam Wadhwa
+        </div>
+          <div class="quote-bottom">”</div>
+        </div>
+    </div>
+    <h1>Our Infrastructure</h1>
+    <div class="infra-heading-line"></div>
+    <div class="infra-container">
+        <div>
+            <div class="infra-box">
+                <img src="sport.jpg" alt="Image 1">
+            </div>
+            <p class="infra-caption">Sports</p>
+        </div>
+        <div>
+            <div class="infra-box">
+                <img src="library.jpg" alt="Image 2">
+            </div>
+            <p class="infra-caption">Library</p>
+        </div>
+        <div>
+            <div class="infra-box">
+                <img src="WhatsApp Image 2024-11-26 at 19.19.28_3ca60599.jpg" alt="Image 3">
+            </div>
+            <p class="infra-caption">Labs</p>
+        </div>
+        <div>
+            <div class="infra-box">
+                <img src="bose.avif" alt="Image 4">
+            </div>
+            <p class="infra-caption">Hostels</p>
+        </div>
+        <div>
+            <div class="infra-box">
+                <img src="class.jpeg" alt="Image 5">
+            </div>
+            <p class="infra-caption">Classrooms</p>
+        </div>
+        <div>
+            <div class="infra-box">
+                <img src="Halls.jpg" alt="Image 6">
+            </div>
+            <p class="infra-caption">Halls</p>
+        </div>
+        <div>
+            <div class="infra-box">
+                <img src="transport.jpg" alt="Image 7">
+            </div>
+            <p class="infra-caption">Transport</p>
+        </div>
+        <div>
+            <div class="infra-box">
+                <img src="lp.jpg" alt="Image 8">
+            </div>
+            <p class="infra-caption">Gardens</p>
+        </div>
+    </div>
+    <div class="stat-container">
+        <h2>University Placement Statistics</h2>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div>Placement Percentage</div>
+                <p class="stat-value"> </p>
+            </div>
+
+            <div class="stat-item">
+                <div>Highest Package</div>
+                <p class="stat-value"> </p>
+            </div>
+
+            <div class="stat-item">
+                <div>Total Offers</div>
+                <p class="stat-value"> </p>
+            </div>
+        </div>
+        <section class="recruiters-section">
+            <h1>OUR TOP RECRUITERS</h1>
+            <BR><br>            
+            <div class="logo-grid">
+                <img src="Accenture.png" alt="Accenture">
+                <img src="adani.jpg" alt="Adani">
+                <img src="aditya.png" alt="Aditya Birla Group">
+                <img src="adobe.png" alt="Adobe">
+                <img src="amazon.jpg" alt="Amazon">
+                <img src="detttol.png" alt="Deloitte">
+                <img src="ey.png" alt="EY">
+                <img src="google.png" alt="Google">
+                <img src="ibm.png" alt="IBM">
+                <img src="infosys.png" alt="Infosys">
+                <img src="microsoft.png" alt="Microsoft">
+                <img src="samsung.png" alt="Samsung">
+                <img src="tata.png" alt="Tata">
+                <img src="wipro.svg" alt="Wipro">
+            </div>
+        </section>
+        <section class="testimonials">
+            <h1>What Our Student Says</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="row">
+                    <div class="testimonial-col">
+                        <img src="images/user1.jpg">
+                        <div> 
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque aliquet turpis nulla, eleifend faucibus est sollicitudin ut. Maecenas ut venenatis ex, et dapibus purus.</p>
+                            <h3>Christine Berkley</h3>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-col">
+                        <img src="images/user2.jpg">
+                        <div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque aliquet turpis nulla, eleifend faucibus est sollicitudin ut. Maecenas ut venenatis ex, et dapibus purus.</p>
+                            <h3>David Byer</h3>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                    </div>
+                    
+                </div>
+        </section>
+    </div>
+    <img src="chit.jpg" alt="Full-Screen Image" style="width: 1260px">
+
+</body>
+</html>

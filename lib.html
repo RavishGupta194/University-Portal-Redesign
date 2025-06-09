@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Library</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f7f9fc;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: rgb(173, 7, 7);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f39c12;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('lib1.jpg') no-repeat center center/cover;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+        }
+
+        /* Flex Section */
+        .flex-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            gap: 20px;
+        }
+
+        .flex-item {
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            flex: 1 1 calc(33.333% - 20px);
+            text-align: center;
+            transition: transform 0.3s ease; /* Add transition for smooth hover effect */
+        }
+
+        .flex-item:hover {
+            transform: scale(1.1); /* Enlarge the flex item on hover */
+        }
+
+        .flex-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .flex-item h3 {
+            padding: 10px 0;
+            color: #2c3e50;
+        }
+
+        .flex-item p {
+            padding: 0 10px 10px;
+        }
+
+        /* Resources Section */
+        .resources-section {
+            background: #ecf0f1;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .resources-section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .resources-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: auto;
+            gap: 20px;
+        }
+
+        .resources-list .resource-item {
+            flex: 1 1 calc(25% - 20px);
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Rules Section */
+        .rules-section {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .rules-section h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .rules-section ol {
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 40px 20px;
+            background  : black;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .contact-section p {
+            font-size: 18px;
+        }
+
+        .contact-section button {
+            background-color: white;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-section button:hover {
+            background-color: #f39c12;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background:rgb(190, 5, 5);
+            color: white;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">Tagore Library</div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#rules">Rules</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div>
+            <h1>Welcome to the College Library</h1>
+            <p>A world of knowledge awaits you!</p>
+        </div>
+    </section>
+
+    <section class="flex-section" id="about">
+        <div class="flex-item">
+            <img src="lib2.jpg" alt="Library Interior">
+            <h3>Modern Facilities</h3>
+            <p>State-of-the-art infrastructure for students and faculty.</p>
+        </div>
+        <div class="flex-item">
+            <img src="lib3.jpg" alt="Digital Library">
+            <h3>Our Collection</h3>
+            <p>Access thousands of e-books and journals anytime.</p>
+        </div>
+        <div class="flex-item">
+            <img src="lib4.jpg" alt="Reading Room">
+            <h3>Quiet Reading Rooms</h3>
+            <p>Comfortable spaces for uninterrupted study sessions.</p>
+        </div>
+    </section>
+
+    <section class="resources-section" id="resources">
+        <h2>Library Resources</h2>
+        <div class="resources-list">
+            <div class="resource-item">10,000+ Books</div>
+            <div class="resource-item">Journals and Magazines</div>
+            <div class="resource-item">Research Papers</div>
+            <div class="resource-item">E-Library Access</div>
+        </div>
+    </section>
+
+    <section class="rules-section" id="rules">
+        <h2>Library Rules</h2>
+        <ol>
+            <li>Maintain silence at all times.</li>
+            <li>Return borrowed books on time.</li>
+            <li>Keep mobile phones on silent mode.</li>
+            <li>Food and drinks are not allowed inside.</li>
+        </ol>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <h2>Contact Us</h2>
+        <p style="color: white;">Email: library@college.edu | Phone: +91-12345-67890</p>
+        <button>Contact Now</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 College Library. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
