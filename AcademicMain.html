@@ -1,0 +1,321 @@
+<html>
+  <head>
+  </head>
+<title> display </title>
+<style> 
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.8em;
+  color: #666;
+}
+.pimg1 {
+  background-image: url(bridge2.jpg);
+  min-height: 100%;
+}
+.pimg2 {
+  background-image: url(cvr.jpg);
+  min-height: 400px;
+}
+.pimg3 {
+  background-image: url(ramjblock.jpg);
+  min-height: 400px;
+}
+.pimg1,
+.pimg2,
+.pimg3 {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.ptext {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: black;
+  font-size: 27px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+}
+.textBg {
+  background: #313534;
+  color: #fff;
+  padding: 5px;
+}
+
+.section {
+  padding: 50px 80px;
+  text-align: center;
+}
+.section-light {
+  background-color: #f4f4f4;
+  color: #666;
+}
+.section-dark {
+  background-color: #282e34;
+  color: #ddd;
+}
+
+/* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.wrapper {
+      margin: 0;
+      padding: 20px;
+      width: 100vw;
+      height: 100vh;
+      background-color: black; /* Black background for the wrapper */
+      display: flex;
+      flex-direction: column; /* Stack items vertically */
+      align-items: center; /* Center items horizontally */
+    }
+
+    .wrapper h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px; /* Add space between heading and cards */
+      color: red; /* Red text for the heading */
+      text-align: center; /* Center align the heading */
+    }
+/* Styling the card container */
+.card-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card-link {
+  display: block;
+  text-decoration: none; /* Remove default link styling */
+}
+
+.card {
+  width: 280px;
+  height: 400px;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6); /* Increased shadow for thicker borders */
+  border: 5px solid #ff4d4d; /* Thick red border around each card */
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+}
+
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 3px solid transparent;
+  border-radius: 20px;
+  transition: all 0.6s ease;
+}
+
+.card::before {
+  top: 0;
+  left: 0;
+  border-top: 5px solid transparent;
+  border-left: 5px solid transparent;
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.5); /* Thicker red glow effect */
+}
+
+.card::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid transparent;
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.5); /* Thicker red glow effect */
+}
+
+.card:hover::before,
+.card:hover::after {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 50px rgba(255, 100, 100, 0.8), 0 0 50px rgba(255, 255, 255, 0.6); /* Thicker neon glow */
+}
+
+.card:hover {
+  transform: scale(1.1) rotate3d(1, 1, 0, 8deg);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4); /* Thicker shadow on hover */
+}
+
+.card-hover-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6); /* Slightly darker overlay */
+  border-radius: 20px;
+  color: white;
+  padding: 20px;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: transform 0.6s ease, opacity 0.3s ease;
+}
+
+.card:hover .card-hover-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card-hover-content h3 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600; /* Bold font weight */
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+  text-shadow: 0 0 15px rgba(255, 0, 0, 0.8), 0 0 25px rgba(255, 100, 100, 0.6); /* Thicker red shadow */
+}
+
+.card-hover-content p {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 100, 100, 0.7); /* Thicker red and white glow */
+}
+
+.card-hover-content button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background: linear-gradient(135deg, #ff7f7f, #ffffff); /* Lighter red to white gradient */
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Thicker shadow for button */
+}
+
+.card-hover-content button:hover {
+  background: linear-gradient(135deg, #ffffff, #ff7f7f); /* Inverted gradient for hover effect */
+  transform: scale(1.1);
+}
+
+
+
+
+</style>
+
+
+
+
+
+  <body>
+    <section class="pimg1">
+      <div class="ptext">
+        <span class="textBg">Explore chitkara </span>
+      </div>
+    </section>
+    <section class="section section-dark">
+      <h2>Section One</h2>
+      <p>
+The Ramanujan Block at Chitkara University stands as a testament to modern education and infrastructure, fostering an environment conducive to academic excellence and innovation. Named after the legendary mathematician Srinivasa Ramanujan, this block epitomizes the spirit of intellectual growth and discovery.
+
+State-of-the-Art Facilities:
+
+Advanced Computer Labs: Equipped with the latest hardware and software, the computer labs provide students with hands-on experience in coding, development, and computational research.
+Digital Logic Labs: Designed for practical learning, the digital logic labs are equipped with advanced tools and kits to help students grasp the fundamentals of circuits and digital systems.
+Smart Classrooms with Projectors: Every classroom in the Ramanujan Block is a smart classroom, featuring high-resolution projectors to facilitate interactive and visually engaging lectures.
+
+</p>
+    </section>
+    <section class="pimg2">
+      <div class="ptext">
+        <span class="textBg"> Explore your potential</span>
+      </div>
+    </section>
+    <section class="section section-dark">
+      <h2>Section Two</h2>
+      <p>
+The Ramanujan Block isn't just about infrastructure; it represents a philosophy of learning where students are encouraged to apply theoretical knowledge to solve real-world problems. This block is the heart of technological and scientific education at Chitkara University.
+
+Come, explore, and grow at the Ramanujan Block—a place where knowledge meets innovation!
+
+
+
+</p>
+    </section>
+    <section class="pimg3">
+      <div class="ptext">
+        <span class="textBg"> Never give Up </span>
+      </div>
+    </section>
+    <section class="section section-dark">
+      <h2>Section Three</h2>
+      <p>
+The CV Raman Block at Chitkara University is named in honor of the Nobel Laureate and physicist Sir Chandrasekhara Venkata Raman, whose pioneering discoveries in light scattering have inspired generations of scientists. This block is a hub of innovation and scientific inquiry, designed to nurture young minds and prepare them for future challenges.
+
+Highlights of the CV Raman Block:
+
+Physics and Engineering Labs: The block houses well-equipped laboratories dedicated to physics experiments and engineering practices, offering hands-on experience to students.
+High-Tech Classrooms: Classrooms are designed to facilitate dynamic learning, featuring modern technology, including audio-visual aids and ergonomic seating.
+Collaboration Zones: Dedicated spaces for brainstorming and teamwork allow students to collaborate on projects, fostering creativity and problem-solving skills.
+
+        </p>
+    </section>
+    <section class="pimg1">
+      <div class="ptext">
+        <span class="textBg"> Do Some Coding </span>
+      </div>
+    </section>
+
+
+<div class="wrapper">
+<h1>Explore Our Infrastructure</h1>
+
+
+  <div class="card-container">
+    <!-- Card 1 -->
+    <a href="card.html" class="card-link">
+      <div class="card" style="background-image: url('ramjblock.jpg');">
+        <div class="card-hover-content">
+          <h3>RJ Block</h3>
+          <p></p>
+          <button>Learn More</button>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 2 -->
+    <a href="cvr.html" class="card-link">
+      <div class="card" style="background-image: url('cvr.jpg');">
+        <div class="card-hover-content">
+          <h3>CVR Block</h3>
+          <p></p>
+          <button>Learn More</button>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 3 -->
+    <a href="kalam.html" class="card-link">
+      <div class="card" style="background-image: url('kalam1.jpg');">
+        <div class="card-hover-content">
+          <h3>Kalam Block</h3>
+          <p></p>
+          <button>Learn More</button>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+</body>
+</html>

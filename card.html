@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chitkara University - Ramanujan Block</title>
+  <style>
+    /* Import Poppins font */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    
+    /* Body and Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: black; /* Dark background */
+      color: #fff; /* White text */
+    }
+
+    /* Header */
+    header {
+      background-color: #e74c3c; /* Red header background */
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    /* Card Container */
+    .card-container {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      margin: 50px 0;
+      flex-wrap: wrap;
+    }
+
+    /* Card Styling */
+    .card {
+      width: 300px;
+      height: 450px; /* Increase height for larger images */
+      border-radius: 15px;
+      background-color: #fff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      border: 5px solid #e74c3c; /* Red border */
+      transform: scale(1);
+    }
+
+    .card img {
+      width: 100%;
+      height: 70%; /* Make image occupy more space */
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .card .card-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.6); /* Black background with transparency */
+      color: white;
+      text-align: center;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .card-content {
+      transform: translateY(0);
+    }
+
+    .card:hover img {
+      transform: scale(1.1);
+    }
+
+    .card:hover {
+      transform: scale(1.1);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-content h3 {
+      margin: 0;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #e74c3c; /* Red text */
+    }
+
+    .card-content p {
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+
+    /* Section Between Cards and Footer */
+    .info-section {
+      text-align: center;
+      background-color: #e74c3c; /* Red background */
+      padding: 50px 20px;
+      color: white;
+    }
+
+    .info-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .info-section p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .info-section img {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      margin: 10px;
+      border-radius: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: black; /* Dark footer background */
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <h1>Welcome to Ramanujan Block</h1>
+    <p>Ramanujan Block - Engineering Classes & Labs</p>
+    <p>Explore the core of our engineering curriculum, practical labs, and our commitment to excellence in education.</p>
+  </header>
+
+  <!-- Card Container -->
+  <div class="card-container">
+    <!-- Card 1: RJ114 Programming Lab -->
+    <div class="card">
+      <img src="WhatsApp Image 2024-11-26 at 19.19.28_3ca60599.jpg" alt="Programming Lab">
+      <div class="card-content">
+        <h3 style="text-align: center;"> Programming Lab</h3>
+        <p>This lab is focused on Competitive Programming, preparing students for coding challenges. Students learn languages like C++, Python, and Java and solve real-world problems through coding competitions.</p>
+      </div>
+    </div>
+
+    <!-- Card 2: Digital Logic -->
+    <div class="card">
+      <img src="digital.jpg" alt="Digital Logic">
+      <div class="card-content">
+        <h3>Digital Logic</h3>
+        <p>Explore the fundamentals of digital circuits, logic gates, and circuit design in our Digital Logic lab. Hands-on experience in building circuits enhances conceptual understanding and prepares students for iot projects.</p>
+      </div>
+    </div>
+
+    <!-- Card 3: Ramanujan Block -->
+    <div class="card">
+      <img src="classroom.jpg" alt="Ramanujan Block">
+      <div class="card-content">
+        <h3>Ramanujan Block</h3>
+        <p>Ramanujan Block is the home to our engineering classes, providing a dynamic and interactive environment for learning. Equipped with modern classrooms, labs, and collaborative spaces, it's the heart of our engineering programs.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info Section Between Cards and Footer -->
+  <div class="info-section">
+    <h2>Explore Our Infrastructure</h2>
+    <p>We offer state-of-the-art facilities for our students to enhance their learning experience, with dedicated spaces for creativity, coding, and research.</p>
+    <div>
+      <img src="https://via.placeholder.com/200x150.png?text=Library" alt="Library">
+      <img src="https://via.placeholder.com/200x150.png?text=Sports+Facilities" alt="Sports Facilities">
+      <img src="https://via.placeholder.com/200x150.png?text=Classrooms" alt="Classrooms">
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Chitkara University. All rights reserved.</p>
+  </footer>
+</body>
+</html>

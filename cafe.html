@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Eateries - Chitkara University</title>
+  <style>
+    /* General Body and Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    /* Header Section */
+    header {
+      background-color: #333;
+      color: white;
+      padding: 30px;
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    header .logo img {
+      width: 150px;
+border-radius:25px;
+    }
+
+    header nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 1.1rem;
+    }
+
+    header nav a:hover {
+      color: #e74c3c;
+      transition: color 0.3s;
+    }
+
+    /* Hero Section */
+    .hero {
+  background: url('sunview.jpg') no-repeat center center/cover;
+  background-color: rgba(0, 0, 0, 0.5); /* Fallback color */
+  filter: contrast(1.2) brightness(1.1); /* Increase contrast and brightness for sharper look */
+  padding: 120px 0;
+  text-align: center;
+  font-size: 2.5rem;
+  color: white;
+}
+
+    .hero h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-top: 20px;
+    }
+
+    /* Restaurant Card Container */
+    .card-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 50px;
+      gap: 30px;
+      text-align: center;
+    }
+
+    /* Individual Restaurant Cards */
+    .card {
+      width: 300px;
+      height: 400px;
+      background-color: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card img {
+      width: 100%;
+      height: 60%;
+      object-fit: cover;
+    }
+
+    .card .card-content {
+      padding: 20px;
+      background-color: #fff;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
+
+    .card:hover img {
+      transform: scale(1.1);
+      transition: transform 0.4s ease;
+    }
+
+    .card-content h3 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: #e74c3c;
+    }
+
+    .card-content p {
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.5;
+      margin-top: 10px;
+      padding: 0 15px;
+    }
+
+    /* Footer Section */
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    footer a {
+      color: #e74c3c;
+      text-decoration: none;
+    }
+
+    /* Add responsiveness */
+    @media (max-width: 768px) {
+      .card-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card {
+        width: 80%;
+        margin-bottom: 30px;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+      }
+    }
+/* Global Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #111; /* Dark background */
+  color: #fff; /* White text for contrast */
+}
+
+/* Header */
+header {
+  background-color: black;
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+header p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+/* Card Container */
+.card-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin: 50px 0;
+  flex-wrap: wrap;
+}
+
+/* Card Styling */
+.card {
+  width: 300px;
+  height: 400px;
+  border-radius: 15px;
+  background-color: #fff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 5px solid transparent; /* No border initially */
+  padding: 20px;
+}
+
+.card img {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* Glowing Border Effect */
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  border: 5px solid #e74c3c; /* Red border */
+}
+
+.card:hover img {
+  transform: scale(1.1); /* Zoom in on image */
+}
+
+/* Hover Glowing Effect */
+.card:hover {
+  animation: glowEffect 1.5s ease-in-out infinite alternate;
+}
+
+/* Glowing Border Animation */
+@keyframes glowEffect {
+  0% {
+    border-color: #e74c3c;
+    box-shadow: 0 0 10px #e74c3c, 0 0 20px #e74c3c, 0 0 30px #e74c3c;
+  }
+  100% {
+    border-color: #e74c3c;
+    box-shadow: 0 0 30px #e74c3c, 0 0 40px #e74c3c, 0 0 60px #e74c3c;
+  }
+}
+
+/* Card Content Styling */
+.card .card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-align: center;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-content {
+  transform: translateY(0);
+}
+
+.card-content h3 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #e74c3c;
+}
+
+.card-content p {
+  font-size: 1.1rem;
+  margin-top: 10px;
+color:white;
+}
+
+/* Info Section */
+.info-section {
+  text-align: center;
+  background-color: #34495e;
+  padding: 50px 20px;
+  color: white;
+}
+
+.info-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.info-section p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.info-section img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+footer {
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Remove default link styling */
+.card-link {
+  text-decoration: none; /* Removes the underline */
+  color: inherit; /* Inherit the color from the parent element */
+}
+
+/* Optional: Add hover effect for the entire card */
+.card-link:hover .card {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Styling for the Hero Text */
+    .hero-text {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .hero-text p {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Chitkara University Logo">
+    </div>
+    <nav>
+      <a href="#venkys">Venky's</a>
+      <a href="#chai-nagri">Chai Nagri</a>
+      <a href="#cakrie">Cakrie</a>
+      <a href="#baskin-robbins">Baskin Robbins</a>
+      <a href="#juice-bar">Juice Bar</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>Welcome to Campus Eateries</h1>
+    <p>Explore the best food options at Chitkara University</p>
+  </div>
+
+  <!-- Restaurant Cards Section -->
+  <div class="card-container">
+    
+  <!-- Card 1 -->
+<a href="venky.jpg" class="card-link">
+  <div class="card">
+    <img src="venky.jpg" alt="Venky's Restaurant">
+    <div class="card-content">
+      <h3>Venky's</h3>
+      <p>A fast food restaurant similar to McDonald's, offering a variety of tasty burgers, fries, and shakes!</p>
+    </div>
+  </div>
+</a>
+
+    <!-- Card 2: Chai Nagri -->
+    <div id="chai-nagri" class="card">
+      <img src="chai.jpg" alt="Chai Nagri">
+      <div class="card-content">
+        <h3>Chai Nagri</h3>
+        <p>Grab a refreshing cup of chai and delicious snacks at Chai Nagri. A perfect spot for students to relax, meet friends, and enjoy their tea time.</p>
+      </div>
+    </div>
+
+    <!-- Card 3: Cakrie -->
+    <div id="cakrie" class="card">
+      <img src="https://via.placeholder.com/300x200.png?text=Cakrie" alt="Cakrie">
+      <div class="card-content">
+        <h3>The Cakerie</h3>
+        <p>Satisfy your sweet cravings at Cakrie. A wide variety of cakes, pastries, and desserts await you, all made fresh and delicious!</p>
+      </div>
+    </div>
+
+    <!-- Card 4: Baskin Robbins -->
+    <div id="baskin-robbins" class="card">
+      <img src="br.jpg" alt="Baskin Robbins">
+      <div class="card-content">
+        <h3>Baskin Robbins</h3>
+        <p>Indulge in a wide variety of ice creams at Baskin Robbins. Sweet, creamy, and the best in town! Perfect for cooling off on a hot day.</p>
+      </div>
+    </div>
+
+    <!-- Card 5: Juice Bar -->
+    <div id="juice-bar" class="card">
+      <img src="juice.jpg" alt="Juice Bar">
+      <div class="card-content">
+        <h3>Juice Bar</h3>
+        <p>Refresh yourself with fresh, healthy fruit juices at Juice Bar. The perfect drink to keep you energized throughout the day. Try our smoothie specials!</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Chitkara University - Campus Eateries. All rights reserved.</p>
+    <p><a href="mailto:contact@chitkara.edu">Contact Us</a></p>
+  </footer>
+
+</body>
+</html>
